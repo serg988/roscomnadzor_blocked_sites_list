@@ -27,7 +27,17 @@ const MainScreen = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        'https://reestr.rublacklist.net/api/v2/domains/json/'
+        'https://nameless-falls-80997.herokuapp.com/https://reestr.rublacklist.net/api/v2/domains/json/',
+        // 'https://cors-anywhere.herokuapp.com/https://reestr.rublacklist.net/api/v2/domains/json/',
+        {
+          // type: 'GET',
+          // contentType: 'application/json',
+          // // set the request header authorization to the bearer token that is generated
+          headers: {
+            'X-Requested-WithXML': 'HttpRequest',
+            // Origin: 'http://localhost:3000',
+          },
+        }
       )
       setRowList(data)
     }
